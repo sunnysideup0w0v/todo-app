@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(git push *)",
+      "Bash(gh api *)",
+      "Bash(gh run *)",
+      "Bash(npx vercel *)",
+      "Bash(vercel *)",
+      "Bash(git rm *)",
+      "Bash(npx shadcn@latest *)"
+    ]
+  }
+}

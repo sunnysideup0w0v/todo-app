@@ -1,7 +1,7 @@
 'use client'
 
 import { useTodos } from '@/hooks/useTodos'
-import TodoInput from './TodoInput'
+import { AddTodoForm } from './TodoForm'
 import TodoList from './TodoList'
 import FilterBar from './FilterBar'
 import TodoFooter from './TodoFooter'
@@ -22,15 +22,15 @@ export default function TodoApp() {
   } = useTodos()
 
   return (
-    <div className="app">
-      <div className="container">
-        <header className="header">
-          <h1 className="title">TODO</h1>
-          <p className="subtitle">오늘의 할 일을 관리하세요</p>
+    <div className="min-h-screen bg-gradient-to-br from-violet-500 via-purple-500 to-purple-700 flex items-start justify-center pt-16 px-5 pb-12">
+      <div className="w-full max-w-[540px]">
+        <header className="text-center mb-7">
+          <h1 className="text-5xl font-black text-white tracking-[0.35em] drop-shadow-md">TODO</h1>
+          <p className="mt-2 text-white/70 text-sm">오늘의 할 일을 관리하세요</p>
         </header>
 
-        <main className="card">
-          <TodoInput onAdd={addTodo} />
+        <div className="bg-white rounded-2xl shadow-[0_25px_60px_rgba(109,40,217,0.25),0_8px_20px_rgba(0,0,0,0.08)] overflow-hidden">
+          <AddTodoForm onAdd={addTodo} />
 
           {totalCount > 0 && (
             <FilterBar
@@ -58,9 +58,7 @@ export default function TodoApp() {
               onClearCompleted={clearCompleted}
             />
           )}
-        </main>
-
-        <p className="hint">더블 클릭으로 수정 · Enter로 추가</p>
+        </div>
       </div>
     </div>
   )
