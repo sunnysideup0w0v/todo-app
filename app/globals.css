@@ -1,3 +1,15 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --primary: #6c63ff;
   --primary-dark: #5a52d5;
@@ -14,7 +26,6 @@
   --white: #ffffff;
   --shadow: 0 25px 60px rgba(108, 99, 255, 0.2), 0 8px 20px rgba(0, 0, 0, 0.08);
   --radius-card: 20px;
-  --radius-sm: 10px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -51,7 +62,6 @@
   margin-top: 8px;
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
-  font-weight: 400;
 }
 
 /* ── Card ── */
@@ -196,7 +206,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Checkbox */
 .todo-checkbox {
   width: 24px;
   height: 24px;
@@ -223,7 +232,6 @@
   border-color: var(--success);
 }
 
-/* Todo text */
 .todo-text {
   flex: 1;
   font-size: 0.975rem;
@@ -239,7 +247,6 @@
   color: var(--text-3);
 }
 
-/* Edit input (inline) */
 .todo-edit-input {
   flex: 1;
   border: none;
@@ -252,7 +259,6 @@
   caret-color: var(--primary);
 }
 
-/* Delete button */
 .delete-btn {
   opacity: 0;
   background: none;
@@ -310,7 +316,6 @@
 .progress-bar {
   height: 3px;
   background: var(--border);
-  position: relative;
   overflow: hidden;
 }
 

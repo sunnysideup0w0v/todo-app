@@ -3,19 +3,24 @@ import { useState, useEffect } from 'react'
 const STORAGE_KEY = 'vibe-todos'
 
 export function useTodos() {
-  const [todos, setTodos] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      return stored ? JSON.parse(stored) : []
-    } catch {
-      return []
-    }
-  })
+  const [todos, setTodos] = useState([])
+  const [loaded, setLoaded] = useState(false)
   const [filter, setFilter] = useState('all')
 
+  // Load from localStorage after mount (SSR-safe)
   useEffect(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (stored) setTodos(JSON.parse(stored))
+    } catch {}
+    setLoaded(true)
+  }, [])
+
+  // Persist to localStorage only after initial load to avoid overwriting with []
+  useEffect(() => {
+    if (!loaded) return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
-  }, [todos])
+  }, [todos, loaded])
 
   const addTodo = (text) => {
     const trimmed = text.trim()
